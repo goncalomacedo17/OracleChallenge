@@ -61,6 +61,7 @@ public class CheckoutPipelineTest {
         PaymentSummary paymentSummary;
 
         // Exercise - implement testing passing through all checkout steps
+
         Promotion p1 = new Promotion("product1", Promotion.PromotionType.p_50_pct);
         //Promotion p2 = new Promotion("product2", Promotion.PromotionType.p_2_for_1);
         Promotion p2 = new Promotion("product2", Promotion.PromotionType.p_2_for_1);
