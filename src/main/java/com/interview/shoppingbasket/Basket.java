@@ -29,8 +29,8 @@ public class Basket {
     */
     public void consolidateItems() {
         Map<String,BasketItem> consolidatedItems = new HashMap<>();
-        String p_name;
-        int p_quantity;
+        String productName;
+        int productQuantity;
         String productCode;
         for(BasketItem basketItem : items){
             productCode = basketItem.getProductCode();
@@ -39,12 +39,13 @@ public class Basket {
                 consolidatedItem.setQuantity(consolidatedItem.getQuantity()+ basketItem.getQuantity());
             }
             else {
-                p_name = basketItem.getProductName();
-                p_quantity= basketItem.getQuantity();
-                consolidatedItems.put(productCode,new BasketItem(productCode,p_name,p_quantity));
+                productName = basketItem.getProductName();
+                productQuantity= basketItem.getQuantity();
+                consolidatedItems.put(productCode,new BasketItem(productCode,productName,productQuantity));
             }
 
-            items = new ArrayList<>(consolidatedItems.values());
+
         }
+        items = new ArrayList<>(consolidatedItems.values());
     }
 }

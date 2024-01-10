@@ -44,7 +44,7 @@ public class CheckoutPipelineTest {
         basket = new Basket();
 
         when(pricingService.getPrice("product1")).thenReturn(4.0);
-        when(pricingService.getPrice("product2")).thenReturn(2.0);
+        when(pricingService.getPrice("product2")).thenReturn(4.0);
 
 
     }
@@ -75,7 +75,7 @@ public class CheckoutPipelineTest {
         //for(Promotion p : promotions) System.out.println(p.getProductCode() + " - " + p.getPromotionType());
 
         basket.add("product1", "myproduct1", 10);
-        basket.add("product2", "myproduct2", 11);
+        basket.add("product2", "myproduct2", 10);
 
 
         when(promotionsService.getPromotions(basket)).thenReturn(promotions);
@@ -95,7 +95,7 @@ public class CheckoutPipelineTest {
         checkoutPipeline.addStep(checkoutStep2);
         paymentSummary = checkoutPipeline.checkout(basket);
 
-        assertEquals(paymentSummary.getRetailTotal(),2.0 * 10 + 2.0 * 6);
+        assertEquals(paymentSummary.getRetailTotal(),2.0 * 10 + 4.0 * 5);
 
 
 
